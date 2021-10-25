@@ -1,4 +1,3 @@
-// function implementation
 const assertEqual = function(actual, expected) {
   
   if (actual === expected) {
@@ -9,8 +8,11 @@ const assertEqual = function(actual, expected) {
 
 };
 
-//test code
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-assertEqual("Hello", "Hello");
-assertEqual(1, 2);
+const head = function(arr) {
+  return arr[0];
+};
+
+assertEqual(head([5, 6, 7]), 5);
+assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");
+console.log(head([]));
+console.log(head([1]));
