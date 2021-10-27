@@ -28,28 +28,27 @@ const assertEqualArray = function(arr1, arr2) {
 
 };
 
-let string = "hello";
+// let string = "hello";
 
-assertEqualArray(eqArrays(string), "hello")
+// assertEqualArray(string, "hello");
 
-// const letterPositions = function(sentence) {
-//   const results = {};
+const letterPositions = function(sentence) {
+  const results = {};
 
+    for (let letter of sentence) {
+      !results.hasOwnProperty(letter) ?
+      results[letter] = [] : null;
+    }
 
-//   return results;
-// }
+    for (let i = 0; i < sentence.length; i++) {
+      results.hasOwnProperty(sentence[i]) ?
+        results[sentence[i]].push(i) :
+        null;
+      }
+      
+  delete results[' '];
+  return results;
+}
 
-// "lighthouse in the house"
------------------------------------
-// let obj ={ 
-//   l: [0],
-//   i: [1, 11],
-//   g: [2],
-//   h: [3, 5, 15, 18],
-//   t: [4, 14],
-//   o: [6, 19],
-//   u: [7, 20],
-//   s: [8, 21],
-//   e: [9, 16, 22],
-//   n: [12]
-// }
+console.log(letterPositions("lighthouse in the house"));
+assertEqualArray(letterPositions("lighthouse in the house").e, [9, 16, 22]);
