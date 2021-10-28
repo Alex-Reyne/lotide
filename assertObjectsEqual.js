@@ -34,16 +34,19 @@ let eqArrays = function(arr1, arr2) {
 const eqObjects = function(object1, object2) {
   let object1Keys = Object.keys(object1);
   let object2Keys = Object.keys(object2);
-
+  // checks if both arrays are the same length
   if (object1Keys.length !== object2Keys.length) {
     return false;
   }
-
+  // loops through each element of the arrays
   for (let element of object1Keys) {
+    // if they are both arrays, continue
     if (Array.isArray(object1[element]) && Array.isArray(object2[element])) {
+      // the the arrays are equal, continue
       if (!eqArrays(object1[element], object2[element])) {
         return false;
       }
+      // if each element is the same, continue
     } else if (object1[element] !== object2[element]) {
       return false;
     }
@@ -56,5 +59,5 @@ const cd = { c: "1", d: ["2", 3] };
 const dc = { d: ["2", 3], c: "1" };
 assertObjectEqual(cd, dc);
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertObjectEqual(cd, cd2);
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+// assertObjectEqual(cd, cd2);
