@@ -45,7 +45,9 @@ const eqObjects = function(object1, object2) {
       }
     } 
     if (typeof object1[name] === 'object') {
-      return eqObjects(object1[name], object2[name]);
+      if (!eqObjects(object1[name], object2[name])) {
+        return false;
+      }
     } else if (object1[name] !== object2[name]) {
         return false;
     }
@@ -73,4 +75,5 @@ assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // =
 assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false) // => false
 assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false) // => false
 assertEqual(eqObjects({ a: { z: 1, x: { y: 3 }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }), true); // => true
+assertEqual(eqObjects({ a: { z: 1, x: { y: 3 }}, b: 3 }, { a: { z: 1, x: { y: 3 } }, b: 2 }), false); // => false
 assertEqual(eqObjects({ a: { z: 1, x: { y: 3, f: { a: 2 } }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }), false); // => false
