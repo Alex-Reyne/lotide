@@ -28,4 +28,4 @@ const assertEqualArray = function(arr1, arr2) {
 
 };
 
-assertEqualArray([1, 2, 4], [1, 2, 3]);
+assertEqualArray([1, 2, 3], [1, 2, 3]);

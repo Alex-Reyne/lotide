@@ -29,35 +29,58 @@ let eqArrays = function(arr1, arr2) {
   return isTrue;
 };
 
-// Returns true if both objects have identical keys with identical values.
-// Otherwie you get back a big fat false!
 const eqObjects = function(object1, object2) {
   let object1Keys = Object.keys(object1);
   let object2Keys = Object.keys(object2);
-  // checks if both arrays are the same length
+
   if (object1Keys.length !== object2Keys.length) {
     return false;
   }
-  // loops through each element of the arrays
-  for (let element of object1Keys) {
-    // if they are both arrays, continue
-    if (Array.isArray(object1[element]) && Array.isArray(object2[element])) {
-      // the the arrays are equal, continue
-      if (!eqArrays(object1[element], object2[element])) {
+
+  for (let name of object1Keys) {
+    if (Array.isArray(object1[name]) && Array.isArray(object2[name])) {
+      if (!eqArrays(object1[name], object2[name])) {
         return false;
       }
-      // if each element is the same, continue
-    } else if (object1[element] !== object2[element]) {
-      return false;
+    } 
+    if (typeof object1[name] === 'object') {
+      if (!eqObjects(object1[name], object2[name])) {
+        return false;
+      }
+    } else if (object1[name] !== object2[name]) {
+        return false;
     }
   }
   return true;
 };
 
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertObjectEqual(cd, dc);
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertObjectEqual(cd, dc);
+
+// // const cd2 = { c: "1", d: ["2", 3, 4] };
+// // assertObjectEqual(cd, cd2);
+
+// const ab = {a: "1", b: "2"};
+// const ba = {b: "2", a: "1"};
+
+// assertObjectEqual(eqObjects(ab, ba), true);
+
+// const abc = {a: "1", b: "2", c: "3"};
+
+// assertObjectEqual(eqObjects(abc, ab), false);
+
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertObjectEqual(eqObjects(cd, dc), true); // => true
 
 // const cd2 = { c: "1", d: ["2", 3, 4] };
-// assertObjectEqual(cd, cd2);
+// assertObjectEqual(eqObjects(cd, cd2), false); // => false
+
+// assertObjectEqual({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
+// assertObjectEqual({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => false
+// assertObjectEqual({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) // => false
+// assertObjectEqual({ a: { z: 1, x: { y: 3 }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }); // => true
+// assertObjectEqual({ a: { z: 1, x: { y: 3 }}, b: 3 }, { a: { z: 1, x: { y: 3 } }, b: 2 }); // => false
+// assertObjectEqual({ a: { z: 1, x: { y: 3, f: { a: 2 } }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }) // => false

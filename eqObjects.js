@@ -1,9 +1,10 @@
-const assertEqual = function(actual, expected) {
-  
-  if (actual === expected) {
-    console.log(`👌 Assertion Passed: ${actual} === ${expected}`);
+const assertObjectEqual = function(object1, object2) {
+  const inspect = require('util').inspect;
+
+  if (eqObjects(object1, object2)) {
+    console.log(`👌 Assertion Passed: ${inspect(object2)} === ${inspect(object1)}`);
   } else {
-    console.log(`❌ Assertion Failed: ${actual} !== ${expected}`);
+    console.log(`❌ Assertion Failed: ${inspect(object2)} !== ${inspect(object1)}`);
   }
 
 };
@@ -55,25 +56,25 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-const ab = {a: "1", b: "2"};
-const ba = {b: "2", a: "1"};
+// const ab = {a: "1", b: "2"};
+// const ba = {b: "2", a: "1"};
 
-assertEqual(eqObjects(ab, ba), true);
+// assertEqual(eqObjects(ab, ba), true);
 
-const abc = {a: "1", b: "2", c: "3"};
+// const abc = {a: "1", b: "2", c: "3"};
 
-assertEqual(eqObjects(abc, ab), false);
+// assertEqual(eqObjects(abc, ab), false);
 
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
+// const cd = { c: "1", d: ["2", 3] };
+// const dc = { d: ["2", 3], c: "1" };
+// assertEqual(eqObjects(cd, dc), true); // => true
 
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
+// const cd2 = { c: "1", d: ["2", 3, 4] };
+// assertEqual(eqObjects(cd, cd2), false); // => false
 
-assertEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true); // => true
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false) // => false
-assertEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false) // => false
-assertEqual(eqObjects({ a: { z: 1, x: { y: 3 }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }), true); // => true
-assertEqual(eqObjects({ a: { z: 1, x: { y: 3 }}, b: 3 }, { a: { z: 1, x: { y: 3 } }, b: 2 }), false); // => false
-assertEqual(eqObjects({ a: { z: 1, x: { y: 3, f: { a: 2 } }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }), false); // => false
+// assertObjectEqual({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }); // => true
+// assertObjectEqual({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }) // => false
+// assertObjectEqual({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }) // => false
+// assertObjectEqual({ a: { z: 1, x: { y: 3 }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }); // => true
+// assertObjectEqual({ a: { z: 1, x: { y: 3 }}, b: 3 }, { a: { z: 1, x: { y: 3 } }, b: 2 }); // => false
+// assertObjectEqual({ a: { z: 1, x: { y: 3, f: { a: 2 } }}, b: 2 }, { a: { z: 1, x: { y: 3 } }, b: 2 }) // => false
