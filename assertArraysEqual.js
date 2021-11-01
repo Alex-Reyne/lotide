@@ -29,6 +29,7 @@ let eqArrays = function(arr1, arr2) {
   return true;
 };
 
+module.exports = assertArraysEqual, eqArrays;
 ////// TESTS //////
 
 // assertArraysEqual([4, 5, 6], [4, 5, 6]); // => true
