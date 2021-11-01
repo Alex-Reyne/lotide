@@ -1,5 +1,4 @@
 const head = require('../head.js')
-
 const assert = require('chai').assert
 
 describe('#head returns ONLY the first item in an array', () => {
