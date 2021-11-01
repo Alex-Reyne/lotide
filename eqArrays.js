@@ -1,13 +1,3 @@
-const assertEqualArray = function(arr1, arr2) {
-  
-  if (eqArrays(arr1, arr2)) {
-    console.log(`👌 Assertion Passed: ${arr1} === ${arr2}`);
-  } else {
-    console.log(`❌ Assertion Failed: ${arr1} !== ${arr2}`);
-  }
-
-};
-
 let eqArrays = function(arr1, arr2) {
   
   if (arr1.length !== arr2.length) {
@@ -29,12 +19,15 @@ let eqArrays = function(arr1, arr2) {
   return true;
 };
 
-assertEqualArray([4, 5, 6], [4, 5, 6]); // => true
-assertEqualArray([1, 2, 3], [4, 5, 6]); // => false
-assertEqualArray([[2, 3], [4]], [[2, 3], [4]]) // => true
-assertEqualArray([[2, 3], [4]], [[2, 3], [4, 5]]) // => false
-assertEqualArray([[2, 3], [4]], [[2, 3], 4]) // => false
+////// TESTS AND OLD CODE //////
+// console.log(eqArrays([4, 5, 6], [4, 5, 6])); // => true
+// console.log(eqArrays([1, 2, 3], [4, 5, 6])); // => false
+// console.log(eqArrays([[2, 3], [4]], [[2, 3], [4]])) // => true
+// console.log(eqArrays([[2, 3], [4]], [[2, 3], [4, 5]])) // => false
+// console.log(eqArrays([[2, 3], [4]], [[2, 3], 4])) // => false
 
+
+////// OLD CODE DO NOT READ //////
 // let eqArrays = function(arr1, arr2) {
 //   let stringOne = '';
 //   let stringTwo = '';
