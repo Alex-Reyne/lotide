@@ -1,22 +1,4 @@
-let eqArrays = function(arr1, arr2) {
-  let stringOne = '';
-  let stringTwo = '';
-  let isTrue = false;
-
-  for (let i of arr1) {
-    stringOne += i;
-  }
-
-  for (let j of arr2) {
-    stringTwo += j;
-  }
-
-  if (stringOne === stringTwo) {
-    isTrue = true;
-  }
-  
-  return isTrue;
-};
+const eqArrays = require('./eqArrays');
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwie you get back a big fat false!
@@ -45,6 +27,8 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
+
+module.exports = eqObjects;
 ////// TESTS //////
 // const ab = {a: "1", b: "2"};
 // const ba = {b: "2", a: "1"};
