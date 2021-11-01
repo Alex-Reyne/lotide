@@ -11,9 +11,3 @@ describe('#tail removes the first item of an array', () => {
   });
 
 });
-
-
-// const words = ["Yo Yo", "Lighthouse Labs", "Labs"];
-// const wordsTail = ["Lighthouse Labs", "Labs"]
-
-// assertArraysEqual(tail(words), ["Lighthouse Labs", "Labs"]);
