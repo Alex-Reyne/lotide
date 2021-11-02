@@ -1,7 +1,7 @@
 {
   "name": "@alex-reyne/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "A lightweight and simpler version of the lodash library. Created as a project for my time at Lighthouse Labs",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
