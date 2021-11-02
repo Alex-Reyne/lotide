@@ -7,4 +7,9 @@ const map = function(array, callback) {
   return results;
 };
 
+const words = ['hello', 'my', 'name', 'is'];
+
+const results1 = map(words, word => word[0]);
+// console.log(results1)
+
 module.exports = map;
